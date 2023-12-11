@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lights Out Game</title>
+  <link rel="stylesheet" href="final.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Lights Out</h1>
+    <div id="gameBoard" class="game-board"></div><br>
+    <button onclick="resetBoard()">New Game</button>
+  </div>
+<footer>
+    <h1>Addendum</h1>
+    <p><strong>CSS Styles:</strong> Using a CSS grid layout for the game board allows for an organized display of squares. The <em>is-off</em> class helps differentiate the black squares.</p>
+
+<p><strong>JavaScript Logic:</strong> The JavaScript code dynamically creates the game board, toggles squares and their neighboring squares, and checks for a win condition when all squares are black.</p>
+
+<p><strong>Random Solvable Configuration:</strong> The approach here toggles a random selection of squares initially, ensuring a solvable configuration. Toggling any square will also toggle its neighboring squares, thus shaping the solvability of the game.</p>
+
+<p><strong>Challenges:</strong> Ensuring the initial configuration is solvable was a primary challenge. By toggling random squares and their neighbors, a solvable state is more likely achieved.</p>
+
+<p><strong>Insights Gained:</strong> This approach showcases how a simple game like Lights Out can be built using JavaScript and CSS. The toggle mechanism applied to squares and their neighbors significantly simplifies the logic behind the solvability of the puzzle.</p>
+
+</footer>
+  <script src="final.js"></script>
+</body>
+</html>
