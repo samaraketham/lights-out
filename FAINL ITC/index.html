@@ -15,8 +15,80 @@
     <h1>Addendum</h1>
     <p><strong>CSS Styles:</strong> Using a CSS grid layout for the game board allows for an organized display of squares. The <em>is-off</em> class helps differentiate the black squares.</p>
 
-<p><strong>JavaScript Logic:</strong> The JavaScript code dynamically creates the game board, toggles squares and their neighboring squares, and checks for a win condition when all squares are black.</p>
+<p><strong>JavaScript Logic:</strong> 
 
+    <p>
+        <strong>Global Variables</strong>
+        <br>
+        <em>boardSize:</em> Represents the size of the game board. In this code, it's set to 5, indicating a 5x5 grid.
+        <br>
+        <em>board:</em> An array used to keep track of the state of each square on the game board. It represents whether a square is 'on' (true) or 'off' (false). Initially, all squares are set to 'on' (true).
+      </p>
+      
+      <p>
+        <strong>createBoard() Function</strong>
+        <br>
+        <em>createBoard()</em> function initializes the game board by creating a grid of squares inside an element with the ID <em>gameBoard</em>.
+        <br>
+        It loops <em>boardSize * boardSize</em> times to create the squares.
+        <br>
+        Each square is represented by a <code>&lt;div&gt;</code> element with the class <em>square</em>, and it's given a <em>dataset</em> attribute <em>index</em> to store its corresponding index in the <em>board</em> array.
+        <br>
+        Event listeners are added to each square so that when clicked, the <em>toggleSquare()</em> function is invoked with the index of the clicked square.
+      </p>
+      
+      <p>
+        <strong>Generating a Solvable Random Board</strong>
+        <br>
+        After creating the board, the code simulates random clicks to generate a solvable random initial state.
+        <br>
+        It loops through <em>boardSize * boardSize</em> times and toggles random squares using the <em>toggleSquare()</em> function.
+      </p>
+      
+      <p>
+        <strong>toggleSquare(index) Function</strong>
+        <br>
+        This function is called when a square is clicked.
+        <br>
+        It toggles the state of the clicked square and its adjacent squares by changing their CSS classes and updating the <em>board</em> array.
+        <br>
+        The clicked square's state is toggled by updating the <em>board</em> array at the clicked index and toggling the <em>is-off</em> class to change its appearance.
+        <br>
+        Adjacent squares' states are also toggled by getting their indices using the <em>getAdjacentIndices()</em> function and updating their states and classes accordingly.
+      </p>
+      
+      <p>
+        <strong>getAdjacentIndices(index) Function</strong>
+        <br>
+        This function returns an array of indices of adjacent squares to a given square index.
+        <br>
+        It checks whether the clicked square is at the edges of the board and adds the indices of adjacent squares accordingly (up, down, left, right).
+      </p>
+      
+      <p>
+        <strong>checkWin() Function</strong>
+        <br>
+        Checks if all squares are turned off (false) by using the <em>every()</em> method on the <em>board</em> array.
+        <br>
+        If all squares are off, it triggers an alert message indicating that the game has been won.
+      </p>
+      
+      <p>
+        <strong>resetBoard() Function</strong>
+        <br>
+        Resets the <em>board</em> array and recreates the game board by calling <em>createBoard()</em>.
+      </p>
+      
+      <p>
+        <strong>Initialization</strong>
+        <br>
+        Calls <em>createBoard()</em> to start the game when the script is loaded.
+      </p>
+      
+      <p>
+        Overall, this code creates a Lights Out puzzle game where clicking a square toggles its state and the state of adjacent squares. The goal is to turn off all the squares to win the game. The initial board configuration is randomly generated and guaranteed to be solvable.
+      </p>
+      
 <p><strong>Random Solvable Configuration:</strong> The approach here toggles a random selection of squares initially, ensuring a solvable configuration. Toggling any square will also toggle its neighboring squares, thus shaping the solvability of the game.</p>
 
 <p><strong>Challenges:</strong> Ensuring the initial configuration is solvable was a primary challenge. By toggling random squares and their neighbors, a solvable state is more likely achieved.</p>
